@@ -1,0 +1,1 @@
+bun run dev:cli telegram "5613175847" "hello from cli"
