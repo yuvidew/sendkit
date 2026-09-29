@@ -1,14 +1,17 @@
 {
-  "name": "sendkit-mcp",
+  "name": "@yuvi_dew/sendkit-mcp",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "exports": {
     ".": "./src/index.ts"
   },
+  "scripts": {
+    "build": "tsdown"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.29.0",
-    "sendkit-core": "workspace:*",
+    "@yuvi_dew/sendkit-core": "workspace:*",
     "zod": "^4.6.5"
   }
 }
