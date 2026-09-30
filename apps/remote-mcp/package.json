@@ -7,7 +7,8 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "start": "bun --env-file=../../.env run src/index.ts"
+    "start": "bun run src/index.ts",
+    "dev": "bun --env-file=../../.env run src/index.ts"
   },
   "dependencies": {
     "@clerk/backend": "^3.20.1",
