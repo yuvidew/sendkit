@@ -1,14 +1,33 @@
 {
-  "name": "@yuvi_dew/sendkit",
+  "name": "@yuvi_dew_1234/sendkit",
   "version": "0.0.0",
-  "private": true,
+  "bin": {
+    "sendkit": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build":"tsdown"
+    "build":"tsdown",
+    "pack:dry": "bun run build && bun pm pack --dry-run",
+    "prepublishOnly": "bun run build"
   },
   "dependencies": {
     "commander": "^15.0.0",
-    "@yuvi_dew/sendkit-core": "workspace:*",
+    "@yuvi_dew_1234/sendkit-core": "workspace:*",
     "zod": "^4.6.5"
   }
 }

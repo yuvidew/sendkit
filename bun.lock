@@ -22,32 +22,32 @@
         "@clerk/backend": "^3.20.1",
         "@clerk/mcp-tools": "^0.6.0",
         "@modelcontextprotocol/sdk": "1.29.0",
-        "@yuvi_dew/sendkit-core": "workspace:*",
+        "@yuvi_dew_1234/sendkit-core": "workspace:*",
         "hono": "^4.13.10",
       },
     },
     "packages/cli": {
-      "name": "@yuvi_dew/sendkit",
+      "name": "@yuvi_dew_1234/sendkit",
       "version": "0.0.0",
       "dependencies": {
-        "@yuvi_dew/sendkit-core": "workspace:*",
+        "@yuvi_dew_1234/sendkit-core": "workspace:*",
         "commander": "^15.0.0",
         "zod": "^4.6.5",
       },
     },
     "packages/core": {
-      "name": "@yuvi_dew/sendkit-core",
+      "name": "@yuvi_dew_1234/sendkit-core",
       "version": "0.0.0",
       "dependencies": {
         "zod": "^4.6.5",
       },
     },
     "packages/local-mcp": {
-      "name": "@yuvi_dew/sendkit-mcp",
+      "name": "@yuvi_dew_1234/sendkit-mcp",
       "version": "0.0.0",
       "dependencies": {
         "@modelcontextprotocol/sdk": "1.29.0",
-        "@yuvi_dew/sendkit-core": "workspace:*",
+        "@yuvi_dew_1234/sendkit-core": "workspace:*",
         "zod": "^4.6.5",
       },
     },
@@ -271,11 +271,11 @@
 
     "@yuku-toolchain/types": ["@yuku-toolchain/types@0.10.2", "", {}, "sha512-sSeo4SSSToiS+sSD+bwn/s94EEcaLJ7tG5LCp8gFYC1G5VzxzX7fqB6m9RU1yMD8KTpu6zdU/I1NlQf8hVBJ9Q=="],
 
-    "@yuvi_dew/sendkit": ["@yuvi_dew/sendkit@workspace:packages/cli"],
+    "@yuvi_dew_1234/sendkit": ["@yuvi_dew_1234/sendkit@workspace:packages/cli"],
 
-    "@yuvi_dew/sendkit-core": ["@yuvi_dew/sendkit-core@workspace:packages/core"],
+    "@yuvi_dew_1234/sendkit-core": ["@yuvi_dew_1234/sendkit-core@workspace:packages/core"],
 
-    "@yuvi_dew/sendkit-mcp": ["@yuvi_dew/sendkit-mcp@workspace:packages/local-mcp"],
+    "@yuvi_dew_1234/sendkit-mcp": ["@yuvi_dew_1234/sendkit-mcp@workspace:packages/local-mcp"],
 
     "accepts": ["accepts@2.0.0", "", { "dependencies": { "mime-types": "^3.0.0", "negotiator": "^1.0.0" } }, "sha512-5cvg6CtKwfgdmVqY1WIiXKc3Q1bkRqGLi+2W/6ao+6Y7gu/RCwRuAhGEzh5B4KlszSuTLgZYuqFqo5bImjNKng=="],
 

@@ -11,12 +11,15 @@
     "format:check": "oxfmt . --check",
     "lint": "oxlint . --deny-warnings",
     "lint:fix": "oxlint . --fix",
-    "build:core": "bun run --filter @yuvi_dew/sendkit-core build",
-    "build:local-mcp": "bun run --filter @yuvi_dew/sendkit-mcp build",
-    "build:cli": "bun run --filter @yuvi_dew/sendkit build",
+    "build:core": "bun run --filter @yuvi_dew_1234/sendkit-core build",
+    "build:local-mcp": "bun run --filter @yuvi_dew_1234/sendkit-mcp build",
+    "build:cli": "bun run --filter @yuvi_dew_1234/sendkit build",
     "dev:cli": "bun run packages/cli/src/index.ts",
     "dev:local-mcp": "bun run packages/local-mcp/src/index.ts",
     "dev:remote-mcp": "bun run apps/remote-mcp/src/index.ts",
+    "release:pack:core": "bun run --filter @yuvi_dew_1234/sendkit-core pack:dry",
+    "release:pack:local-mcp": "bun run --filter @yuvi_dew_1234/sendkit-mcp pack:dry",
+    "release:pack:cli": "bun run --filter @yuvi_dew_1234/sendkit pack:dry",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
