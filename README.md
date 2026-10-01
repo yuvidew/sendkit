@@ -1,5 +1,7 @@
 # SendKit
 
+**Let your AI agent message you on Telegram.**
+
 SendKit lets AI agents and developers send Telegram messages. One core operation is exposed three ways:
 
 | Surface | Package / path | Transport | Auth |
@@ -10,8 +12,57 @@ SendKit lets AI agents and developers send Telegram messages. One core operation
 
 All three call `@yuvi_dew_1234/sendkit-core`, which talks to the Telegram Bot API.
 
+For a project write-up (motivation, design decisions, roadmap), see [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md).
+
+## Why SendKit
+
+AI agents can work for hours, but they can't reach you outside the chat window. Scripts, cron jobs and CI pipelines have the same gap. SendKit gives all of them one small, validated way to send a message:
+
+- **Agents** call the `telegram` MCP tool: *"Message me on Telegram when the tests pass."*
+- **Scripts and CI** run `sendkit telegram <chatId> "Deploy finished"`.
+- **Your own code** imports `sendTelegramMessage` from the core library.
+
+The bot token is never part of the tool input, so the model never sees it.
+
+### Use cases
+
+- Notifications when an agent finishes a long task
+- Alerts when a training run, import or migration completes
+- Deploy and failure alerts from CI/CD
+- Health-check and disk-space warnings from cron jobs
+
+## Quick start
+
+1. Create a bot with [@BotFather](https://t.me/BotFather) (`/newbot`) and copy the token.
+2. Send your bot any message, then read `message.chat.id` from `https://api.telegram.org/bot<token>/getUpdates`.
+3. Pick a surface:
+
+```bash
+# CLI
+npx @yuvi_dew_1234/sendkit init --telegram-bot-token <token>
+npx @yuvi_dew_1234/sendkit telegram <chatId> "hello from SendKit"
+```
+
+For agents, add the [local MCP server](#local-mcp-server) to your MCP client config and ask the agent to send a message.
+
+## Tech stack
+
+| Area | Tools |
+|------|-------|
+| Runtime | Bun workspaces (published packages run on Node 20+) |
+| Language | TypeScript |
+| Protocol | Model Context Protocol SDK (stdio and Streamable HTTP) |
+| Validation | Zod 4 |
+| HTTP server | Hono |
+| Auth | Clerk OAuth (`@clerk/backend`, `@clerk/mcp-tools`) |
+| CLI | Commander |
+| Build, lint, format | tsdown, oxlint, oxfmt |
+
 ## Contents
 
+- [Why SendKit](#why-sendkit)
+- [Quick start](#quick-start)
+- [Tech stack](#tech-stack)
 - [How it works](#how-it-works)
 - [The `telegram` tool](#the-telegram-tool)
 - [Prerequisites](#prerequisites)
@@ -24,6 +75,8 @@ All three call `@yuvi_dew_1234/sendkit-core`, which talks to the Telegram Bot AP
 - [Publishing](#publishing)
 - [Security notes](#security-notes)
 - [Troubleshooting](#troubleshooting)
+- [Roadmap](#roadmap)
+- [Author](#author)
 
 ## How it works
 
@@ -229,3 +282,15 @@ Example: `bun run dev:cli telegram "<chatId>" "hello from cli"`.
 | `401` from the remote server | The client has no valid Clerk OAuth token. Check the Clerk keys and the OAuth setup. |
 | `npm publish` returns 404 | The package scope doesn't match your npm username. |
 | `npm publish` returns 403 about 2FA | Enable 2FA for publishing and pass `--otp=<code>`. |
+
+## Roadmap
+
+- Markdown/HTML parse modes and silent notifications
+- Photos, documents and other media
+- More channels behind the same core (Slack, Discord, email)
+- Tests and a CI workflow
+- Per-user bot tokens stored server-side instead of in the remote server URL
+
+## Author
+
+Built by Yuvraj Dewangan. Issues and pull requests are welcome at [github.com/yuvidew/sendkit](https://github.com/yuvidew/sendkit).
